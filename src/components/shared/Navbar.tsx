@@ -7,13 +7,13 @@ const Navbar = () => {
         {/* Logo */}
         <div className="navbar-start">
           <a href="/" className="group flex items-center gap-2.5">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#70E443] text-[#081B32] shadow-lg shadow-[#70E443]/20 transition-transform duration-300 group-hover:scale-105">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl text-emerald-600 text-[#081B32] shadow-lg shadow-[#70E443]/20 transition-transform duration-300 group-hover:scale-105">
               <HeartHandshake size={26} strokeWidth={2.5} />
             </div>
 
             <div className="">
               <span className="text-xl font-extrabold leading-tight tracking-tight text-white sm:text-2xl">
-                Good<span className="text-green-400">Gather</span>
+                Good<span className="text-emerald-600">Gather</span>
               </span>
               {/* <span className="text-[9px] font-bold uppercase tracking-[2px] text-white/50">
                 Community Action
@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className="navbar-center hidden md:flex">
           <a
             href="/events"
-            className="group flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm font-semibold text-white/70 transition-all duration-300 hover:bg-[#70E443]/10 hover:text-[#70E443]"
+            className="group flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm font-semibold text-white/70 transition-all duration-300 hover:bg-emerald-600/10 hover:text-emerald-600"
           >
             <CalendarDays size={18} />
             Upcoming Events

@@ -15,6 +15,7 @@ import {
   Tag,
   Type as TypeIcon,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const EVENT_TYPES = [
   "Donation",
@@ -64,6 +65,7 @@ const initialForm: FormState = {
 };
 
 export default function AddFacilitiesPage() {
+  const router = useRouter();
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<
     Partial<Record<keyof FormState, string>>
@@ -128,6 +130,8 @@ export default function AddFacilitiesPage() {
       // setForm(initialForm);
       toast.success("Event published successfully!");
       setForm(initialForm);
+
+      router.push("/facilities");
 
       // alert("Event Create Successfully!");
     } catch (err) {
@@ -345,14 +349,14 @@ export default function AddFacilitiesPage() {
             </div>
 
             {/* Organizer Email */}
-            <div className="flex items-center justify-between border border-gray-200 rounded-xl bg-gray-50 px-4 py-3">
+            {/* <div className="flex items-center justify-between border border-gray-200 rounded-xl bg-gray-50 px-4 py-3">
               <span className="font-semibold text-gray-800 text-sm">
                 Organizer Email attached:
               </span>
               <span className="font-bold text-gray-900 text-sm">
                 {organizerEmail || "—"}
               </span>
-            </div>
+            </div> */}
 
             {status && (
               <div

@@ -9,9 +9,16 @@ Frontend app for the `mileston-8` project. The Express + MongoDB backend lives i
 - `npm run lint` — runs `eslint` with no args (flat config: core-web-vitals + TS rules)
 - No test framework is configured
 
+## Backend wiring
+
+- Pages fetch the Express API directly (server components, `fetch` + `cache: "no-store"`), e.g. `src/app/facilities/page.tsx`.
+- The base URL env var is misspelled `NEXT_PUBLIC_SERVER_BESE_URL` (in `.env`, used in 3 pages). The spelling is correct *for this repo* — do not rename it, or every fetch breaks.
+- Run `../server` (`index.js`, port 5000) in parallel or all fetches fail at build/runtime.
+
 ## Stack quirks
 
-- Next.js 16.4.3 with aggressive flags in `next.config.ts`: `cacheComponents`, `partialPrefetching`, `reactCompiler` (React Compiler via `babel-plugin-react-compiler`), plus Turbopack. Pre-16.x Next.js API knowledge is unreliable here — read `node_modules/next/dist/docs/` before writing app-router code.
+- Next.js 16.4.3 via Turbopack. In `next.config.ts`: `cacheComponents: false` and `partialPrefetching: false` (both explicitly off), `reactCompiler: true` (React Compiler via `babel-plugin-react-compiler`), `experimental.agentFeedback: true`. Pre-16.x Next.js API knowledge is unreliable here — read `node_modules/next/dist/docs/` before writing app-router code.
+- Dynamic-route `params` must be awaited (`const { id } = await params`), as in `src/app/facilities/[id]/page.tsx`.
 - Styling is Tailwind v4 via `@tailwindcss/turbopack` — no tailwind config file; theme lives in `src/app/globals.css`. daisyUI is loaded as a plugin (`@plugin "daisyui"`) and `<html data-theme="light">` is set in `src/app/layout.tsx`.
 - The shadcn/Tailwind theme block in `globals.css` (`@theme inline` token mapping, `:root`/`.dark` variables) is active — shadcn color/wording tokens like `bg-card`, `border-input`, `ring-ring` work. daisyUI is still loaded alongside via `@plugin "daisyui"` (`data-theme="light"` on `<html>`).
 - shadcn/ui scaffolding: `components.json` uses style `base-nova`, which is built on `@base-ui/react` primitives (not Radix), with lucide icons. Components live in `src/components/ui`. Path alias: `@/* -> src/*`.
