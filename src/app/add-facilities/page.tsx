@@ -3,7 +3,7 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -16,6 +16,7 @@ import {
   Type as TypeIcon,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useSession } from "@/lib/auth-client";
 
 const EVENT_TYPES = [
   "Donation",
@@ -65,6 +66,13 @@ const initialForm: FormState = {
 };
 
 export default function AddFacilitiesPage() {
+  const { data: session, isPending } = useSession();
+  if (isPending) {
+    <div className="">Loading....</div>;
+  }
+  const user = session?.user;
+  // console.log(user);
+
   const router = useRouter();
   const [form, setForm] = useState<FormState>(initialForm);
   const [errors, setErrors] = useState<
@@ -122,7 +130,11 @@ export default function AddFacilitiesPage() {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ ...form, organizerEmail }),
+          body: JSON.stringify({
+            ...form,
+            organizerEmail,
+            creatorEmail: user?.email,
+          }),
         },
       );
       if (!res.ok) throw new Error(`Server responded with ${res.status}`);
