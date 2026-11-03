@@ -21,8 +21,10 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "@heroui/react";
+import { useState } from "react";
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   const { data: session } = useSession();
   const user = session?.user;
 
@@ -68,7 +70,7 @@ const Navbar = () => {
                 <Moon size={21} />
               </button>
 
-              <Popover>
+              <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger
                   render={
                     <Avatar className="h-10 w-10 cursor-pointer border-2 border-[#70E443]/30 transition-all hover:border-[#70E443]">
@@ -117,6 +119,7 @@ const Navbar = () => {
                   <div className="space-y-1 p-2">
                     <Link
                       href="/add-facilities"
+                      onClick={() => setOpen(false)}
                       className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#70E443]/10 hover:text-[#359B20]"
                     >
                       <PlusCircle size={18} className="text-[#38BFA7]" />
@@ -124,7 +127,8 @@ const Navbar = () => {
                     </Link>
 
                     <Link
-                      href="/manage-events"
+                      href="/my-facilities"
+                      onClick={() => setOpen(false)}
                       className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-purple-50 hover:text-purple-600"
                     >
                       <Settings size={18} className="text-purple-500" />
@@ -133,6 +137,7 @@ const Navbar = () => {
 
                     <Link
                       href="/joined-events"
+                      onClick={() => setOpen(false)}
                       className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#70E443]/10 hover:text-[#359B20]"
                     >
                       <CircleCheck size={18} className="text-[#38BFA7]" />
@@ -145,7 +150,10 @@ const Navbar = () => {
                   {/* Logout */}
                   <div className="p-2">
                     <button
-                      onClick={() => signOut()}
+                      onClick={() => {
+                        setOpen(false);
+                        signOut();
+                      }}
                       className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-red-500 transition-all hover:bg-red-50 hover:text-red-600"
                     >
                       <LogOut size={18} />
@@ -183,21 +191,6 @@ const Navbar = () => {
           </>
         )}
       </nav>
-
-      {/* {session?.user ? (
-        <>
-          <Link href="/sign-in">
-            <Button onClick={() => signOut()}>Log Out</Button>
-          </Link>
-        </>
-      ) : (
-        <>
-          <Link href="/sign-in">Login</Link>
-          <Link href="/sign-up">
-            <Button>Sign Up</Button>
-          </Link>
-        </>
-      )} */}
 
       {/* Mobile Navigation */}
       <div className="border-t border-white/10 px-4 py-2 md:hidden">
