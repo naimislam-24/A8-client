@@ -37,15 +37,9 @@ import { useSession } from "@/lib/auth-client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  MapPin,
-  CalendarDays,
-  UserRound,
-  Eye,
-  Pencil,
-  Trash2,
-} from "lucide-react";
+import { MapPin, CalendarDays, UserRound, Eye, Tag } from "lucide-react";
 import EditFacilities from "@/components/EditFacilities";
+import DeleteFacilities from "@/components/DeleteFacilities";
 
 type TFacility = {
   _id: string;
@@ -94,31 +88,6 @@ const MyFacilitiesPage = () => {
         setLoading(false);
       });
   }, [user, isPending]);
-
-  // Delete Facility
-  const handleDelete = async (id: string) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this facility?",
-    );
-
-    if (!confirmDelete) return;
-
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/facilities/${id}`,
-        {
-          method: "DELETE",
-        },
-      );
-
-      if (!res.ok) throw new Error("Delete failed");
-
-      setFacilities((prev) => prev.filter((item) => item._id !== id));
-    } catch (error) {
-      console.error(error);
-      alert("Failed to delete facility!");
-    }
-  };
 
   if (isPending || loading) {
     return (
@@ -186,7 +155,8 @@ const MyFacilitiesPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
 
                   {/* Category Badge */}
-                  <div className="absolute left-4 top-4 rounded-full bg-emerald-100 px-3 py-1.5 text-xs font-semibold text-emerald-700 shadow-sm">
+                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-emerald-700 shadow-md backdrop-blur-md">
+                    <Tag size={14} />
                     {facility.eventType}
                   </div>
 
@@ -242,24 +212,8 @@ const MyFacilitiesPage = () => {
                       View
                     </Link>
 
-                    {/* Edit */}
-                    {/* <Link
-                      href={`/my-facilities/edit/${facility._id}`}
-                      className="flex items-center justify-center gap-1.5 rounded-xl bg-indigo-50 px-2 py-3 text-sm font-semibold text-indigo-600 transition hover:bg-indigo-100"
-                    >
-                      <Pencil size={15} />
-                      Edit
-                    </Link> */}
                     <EditFacilities facility={facility} />
-
-                    {/* Delete */}
-                    <button
-                      onClick={() => handleDelete(facility._id)}
-                      className="flex items-center justify-center gap-1.5 rounded-xl bg-rose-50 px-2 py-3 text-sm font-semibold text-rose-600 transition hover:bg-rose-100"
-                    >
-                      <Trash2 size={15} />
-                      Delete
-                    </button>
+                    <DeleteFacilities id={facility._id} />
                   </div>
                 </div>
               </div>
