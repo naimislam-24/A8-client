@@ -66,26 +66,25 @@ const LoginPage = () => {
     }
   };
 
-  // const handleGoogleLogin = async () => {
-  //   try {
-  //     setGoogleLoading(true);
-
-  //     await signIn.social({
-  //       provider: "google",
-  //       callbackURL: "/",
-  //     });
-  //   } catch {
-  //     toast.error("Google login failed. Please try again.");
-  //     setGoogleLoading(false);
-  //   }
-  // };
-
   const handleGoogleLogin = async () => {
-    const data = await authClient.signIn.social({
-      provider: "google",
-    });
-    console.log(data);
+    try {
+      setGoogleLoading(true);
+
+      await signIn.social({
+        provider: "google",
+      });
+    } catch {
+      toast.error("Google login failed. Please try again.");
+      setGoogleLoading(false);
+    }
   };
+
+  // const handleGoogleLogin = async () => {
+  //   const data = await authClient.signIn.social({
+  //     provider: "google",
+  //   });
+  //   console.log(data);
+  // };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#f8fafc] px-4 py-10 sm:px-6">
@@ -201,7 +200,7 @@ const LoginPage = () => {
           </div>
 
           {/* Google Login */}
-          {/* <Button
+          <Button
             type="button"
             onPress={handleGoogleLogin}
             isDisabled={loading || googleLoading}
@@ -210,9 +209,9 @@ const LoginPage = () => {
             <FcGoogle size={20} />
 
             {googleLoading ? "Connecting..." : "Continue with Google"}
-          </Button> */}
+          </Button>
 
-          <button onClick={handleGoogleLogin}>Continue with Google</button>
+          {/* <button onClick={handleGoogleLogin}>Continue with Google</button> */}
 
           {/* Register Link */}
           <p className="mt-6 text-center text-sm text-gray-500">

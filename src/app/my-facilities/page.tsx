@@ -45,6 +45,7 @@ import {
   Pencil,
   Trash2,
 } from "lucide-react";
+import EditFacilities from "@/components/EditFacilities";
 
 type TFacility = {
   _id: string;
@@ -242,13 +243,14 @@ const MyFacilitiesPage = () => {
                     </Link>
 
                     {/* Edit */}
-                    <Link
+                    {/* <Link
                       href={`/my-facilities/edit/${facility._id}`}
                       className="flex items-center justify-center gap-1.5 rounded-xl bg-indigo-50 px-2 py-3 text-sm font-semibold text-indigo-600 transition hover:bg-indigo-100"
                     >
                       <Pencil size={15} />
                       Edit
-                    </Link>
+                    </Link> */}
+                    <EditFacilities facility={facility} />
 
                     {/* Delete */}
                     <button
