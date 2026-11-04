@@ -73,16 +73,23 @@ const Navbar = () => {
               <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger
                   render={
-                    <Avatar className="h-10 w-10 cursor-pointer border-2 border-[#70E443]/30 transition-all hover:border-[#70E443]">
-                      <AvatarImage
-                        referrerPolicy="no-referrer"
-                        src={user?.image as string}
-                        className="object-cover"
-                      />
-                      <AvatarFallback className="bg-[#70E443] font-bold text-[#081B32]">
-                        {user?.name?.charAt(0)}
-                      </AvatarFallback>
-                    </Avatar>
+                    <button
+                      type="button"
+                      aria-label="Open profile menu"
+                      className="cursor-pointer rounded-full outline-none"
+                    >
+                      <Avatar className="h-10 w-10 cursor-pointer border-2 border-[#70E443]/30 transition-all hover:border-[#70E443]">
+                        <AvatarImage
+                          referrerPolicy="no-referrer"
+                          src={user?.image as string}
+                          className="object-cover"
+                        />
+
+                        <AvatarFallback className="bg-[#70E443] font-bold text-[#081B32]">
+                          {user?.name?.charAt(0)}
+                        </AvatarFallback>
+                      </Avatar>
+                    </button>
                   }
                 />
 
@@ -136,7 +143,7 @@ const Navbar = () => {
                     </Link>
 
                     <Link
-                      href="/joined-events"
+                      href="/joined-facilities"
                       onClick={() => setOpen(false)}
                       className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#70E443]/10 hover:text-[#359B20]"
                     >
