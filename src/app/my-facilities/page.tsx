@@ -30,7 +30,7 @@
 // };
 
 // export default MyFacilitiesPage;
-
+// *********************************************************
 "use client";
 
 import { useSession } from "@/lib/auth-client";
@@ -136,88 +136,95 @@ const MyFacilitiesPage = () => {
         ) : (
           /* Cards Grid */
           <div className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3">
-            {facilities.map((facility) => (
-              <div
-                key={facility._id}
-                className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
-              >
-                {/* Card Image */}
-                <div className="relative h-60 w-full overflow-hidden">
-                  <Image
-                    src={facility.thumbnail}
-                    alt={facility.title}
-                    fill
-                    unoptimized
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  {/* Image Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                  {/* Category Badge */}
-                  <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-emerald-700 shadow-md backdrop-blur-md">
-                    <Tag size={14} />
-                    {facility.eventType}
-                  </div>
-
-                  {/* Date Badge */}
-                  <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-lg bg-black/70 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm">
-                    <CalendarDays size={15} />
-                    {new Date(facility.date).toLocaleDateString("en-US", {
-                      weekday: "short",
-                      month: "short",
-                      day: "numeric",
-                      year: "numeric",
-                    })}
-                  </div>
-                </div>
-
-                {/* Card Content */}
-                <div className="p-5">
-                  {/* Title */}
-                  <h2 className="mb-3 line-clamp-1 text-xl font-bold text-gray-900">
-                    {facility.title}
-                  </h2>
-
-                  {/* Location */}
-                  <div className="mb-3 flex items-center gap-2 text-sm text-gray-500">
-                    <MapPin size={17} className="shrink-0 text-emerald-600" />
-                    <span className="line-clamp-1">{facility.location}</span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="mb-5 line-clamp-2 min-h-10 text-sm leading-6 text-gray-500">
-                    {facility.description}
-                  </p>
-
-                  <div className="mb-4 border-t border-gray-100" />
-
-                  {/* Organizer Email */}
-                  <div className="mb-5 flex items-center gap-2 text-sm text-gray-500">
-                    <UserRound
-                      size={17}
-                      className="shrink-0 text-emerald-600"
+            {[...facilities]
+              .sort(
+                (a, b) =>
+                  new Date(a.date).getTime() - new Date(b.date).getTime(),
+              )
+              .map((facility) => (
+                <div
+                  key={facility._id}
+                  className="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                >
+                  {/* Card Image */}
+                  <div className="relative h-60 w-full overflow-hidden">
+                    <Image
+                      src={facility.thumbnail}
+                      alt={facility.title}
+                      fill
+                      unoptimized
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <span className="truncate">{facility.organizerEmail}</span>
+
+                    {/* Image Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+                    {/* Category Badge */}
+                    <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-white/90 px-4 py-2 text-xs font-bold text-emerald-700 shadow-md backdrop-blur-md">
+                      <Tag size={14} />
+                      {facility.eventType}
+                    </div>
+
+                    {/* Date Badge */}
+                    <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-lg bg-black/70 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm">
+                      <CalendarDays size={15} />
+                      {new Date(facility.date).toLocaleDateString("en-US", {
+                        weekday: "short",
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </div>
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="grid grid-cols-3 gap-2">
-                    {/* View */}
-                    <Link
-                      href={`/facilities/${facility._id}`}
-                      className="flex items-center justify-center gap-1.5 rounded-xl bg-gray-100 px-2 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-200"
-                    >
-                      <Eye size={16} />
-                      View
-                    </Link>
+                  {/* Card Content */}
+                  <div className="p-5">
+                    {/* Title */}
+                    <h2 className="mb-3 line-clamp-1 text-xl font-bold text-gray-900">
+                      {facility.title}
+                    </h2>
 
-                    <EditFacilities facility={facility} />
-                    <DeleteFacilities id={facility._id} />
+                    {/* Location */}
+                    <div className="mb-3 flex items-center gap-2 text-sm text-gray-500">
+                      <MapPin size={17} className="shrink-0 text-emerald-600" />
+                      <span className="line-clamp-1">{facility.location}</span>
+                    </div>
+
+                    {/* Description */}
+                    <p className="mb-5 line-clamp-2 min-h-10 text-sm leading-6 text-gray-500">
+                      {facility.description}
+                    </p>
+
+                    <div className="mb-4 border-t border-gray-100" />
+
+                    {/* Organizer Email */}
+                    <div className="mb-5 flex items-center gap-2 text-sm text-gray-500">
+                      <UserRound
+                        size={17}
+                        className="shrink-0 text-emerald-600"
+                      />
+                      <span className="truncate">
+                        {facility.organizerEmail}
+                      </span>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="grid grid-cols-3 gap-2">
+                      {/* View */}
+                      <Link
+                        href={`/facilities/${facility._id}`}
+                        className="flex items-center justify-center gap-1.5 rounded-xl bg-gray-100 px-2 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-200"
+                      >
+                        <Eye size={16} />
+                        View
+                      </Link>
+
+                      <EditFacilities facility={facility} />
+                      <DeleteFacilities id={facility._id} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
           </div>
         )}
       </div>
