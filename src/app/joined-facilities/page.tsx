@@ -182,8 +182,7 @@ const JoinFacilitiesPage = () => {
                     />
 
                     <p className="text-xs font-medium leading-relaxed text-teal-800">
-                      You have signed up as a confirmed volunteer for this
-                      initiative.
+                      {booking.description}
                     </p>
                   </div>
 

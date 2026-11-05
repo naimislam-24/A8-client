@@ -61,7 +61,15 @@ const BookCard = ({ event }: { event: TEvent }) => {
       if (!res.ok) {
         throw new Error(bookingRes.message || "Booking failed");
       }
-      toast.success("Booking successful!");
+      // toast.success("Booking successful!");
+      toast.success("Booking successful!", {
+        style: {
+          background: "#0F766E",
+          color: "#FFFFFF",
+          border: "1px solid #115E59",
+          fontWeight: "600",
+        },
+      });
 
       // console.log("Booking Response:", bookingRes);
 

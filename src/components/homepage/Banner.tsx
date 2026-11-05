@@ -50,18 +50,18 @@ const Banner = () => {
           {/* Buttons */}
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <Link
-              href="/events"
+              href="/facilities"
               className="btn min-h-13 rounded-xl border-0 bg-[#0F766E] px-7 text-base font-bold text-white shadow-lg shadow-[#0F766E]/30 transition-all duration-300 hover:-translate-y-1 hover:bg-[#115E59] hover:shadow-xl"
             >
-              Browse Events
+              Explore Upcoming Events
               <ArrowRight size={19} />
             </Link>
 
             <Link
-              href="/about"
+              href="/add-facilities"
               className="btn min-h-13 rounded-xl border border-white/40 bg-white/10 px-7 text-base font-bold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-[#2DD4BF] hover:bg-[#0F766E]/20 hover:text-[#2DD4BF]"
             >
-              Learn More
+              Create Events
             </Link>
           </div>
         </div>
