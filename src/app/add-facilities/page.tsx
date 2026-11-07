@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useSession } from "@/lib/auth-client";
+import { getTokenFromClient } from "@/lib/getTokenFromClient";
 
 const EVENT_TYPES = [
   "Donation",
@@ -129,6 +130,9 @@ export default function AddFacilitiesPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const token = await getTokenFromClient();
+
     setStatus(null);
     if (!validate()) return;
 
@@ -139,7 +143,10 @@ export default function AddFacilitiesPage() {
         `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/facilities`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
+          },
           body: JSON.stringify({
             ...form,
             organizerEmail,

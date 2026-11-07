@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MapPin, CalendarDays, ArrowLeft, Tag, Heart } from "lucide-react";
 import BookCard from "@/components/booking/BookCard";
+import { getTokenFromServer } from "@/lib/getTokenFromServer";
 
 type TEvent = {
   _id: string;
@@ -18,11 +19,17 @@ type TEvent = {
 const DetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
 
+  const jwtToken = await getTokenFromServer();
+  // console.log(jwtToken?.token);
+
   // Fetch data from backend
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/facilities/${id}`,
     {
       cache: "no-store",
+      headers: {
+        authorization: `Bearer ${jwtToken?.token}`,
+      },
     },
   );
 

@@ -22,6 +22,8 @@ type TFacility = {
 const MyFacilitiesPage = () => {
   const { data: session, isPending } = useSession();
 
+  // const token = await getTokenFromClient();
+
   const user = session?.user?.email;
 
   const [facilities, setFacilities] = useState<TFacility[]>([]);
@@ -38,6 +40,11 @@ const MyFacilitiesPage = () => {
 
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/my-facilities/${encodeURIComponent(user)}`,
+      // {
+      //    headers: {
+      //             authorization: `Bearer ${token}`,
+      //            },
+      // }
     )
       .then((res) => {
         if (!res.ok) {
