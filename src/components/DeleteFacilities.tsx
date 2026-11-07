@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { Trash2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 const DeleteFacilities = ({ id }: { id: string }) => {
   const router = useRouter();
@@ -34,6 +35,7 @@ const DeleteFacilities = ({ id }: { id: string }) => {
       if (!res.ok) {
         throw new Error("Failed to delete facility");
       }
+      toast.success("Event deleted successfully!");
 
       router.refresh();
       router.push("/my-facilities");
