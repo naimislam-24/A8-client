@@ -268,7 +268,7 @@ const MyFacilitiesPage = () => {
 
   if (isPending || loading) {
     return (
-      <div className="flex min-h-[60vh] items-center justify-center">
+      <div className="flex min-h-[60vh] items-center justify-center dark:bg-[#080d19]">
         <span className="loading loading-spinner loading-lg text-[#0F766E]" />
       </div>
     );
@@ -276,38 +276,38 @@ const MyFacilitiesPage = () => {
 
   if (!user) {
     return (
-      <div className="flex min-h-[50vh] items-center justify-center px-4 text-center text-gray-500">
+      <div className="flex min-h-[50vh] items-center justify-center bg-transparent px-4 text-center text-gray-500 dark:text-gray-400">
         Please login to see your facilities.
       </div>
     );
   }
 
   return (
-    <section className="min-h-screen bg-slate-50/50 px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
+    <section className="min-h-screen bg-slate-50/50 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 dark:bg-[#080d19]">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-8 sm:mb-10">
-          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#0F766E] sm:text-sm">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-[#0F766E] sm:text-sm dark:text-teal-400">
             Manage Your Activities
           </p>
 
-          <h1 className="text-2xl font-bold text-[#022C22] sm:text-3xl md:text-4xl">
+          <h1 className="text-2xl font-bold text-[#022C22] sm:text-3xl md:text-4xl dark:text-white">
             My Facilities
           </h1>
 
-          <p className="mt-3 max-w-xl text-sm leading-6 text-gray-600 sm:text-base">
+          <p className="mt-3 max-w-xl text-sm leading-6 text-gray-600 sm:text-base dark:text-gray-400">
             Manage all your created community activities in one place.
           </p>
         </div>
 
         {/* Empty State */}
         {facilities.length === 0 ? (
-          <div className="rounded-2xl border border-dashed border-teal-200 bg-white px-5 py-16 text-center shadow-sm sm:py-20">
-            <h2 className="text-lg font-bold text-[#022C22] sm:text-xl">
+          <div className="rounded-2xl border border-dashed border-teal-200 bg-white px-5 py-16 text-center shadow-sm sm:py-20 dark:border-teal-800 dark:bg-[#11192c]">
+            <h2 className="text-lg font-bold text-[#022C22] sm:text-xl dark:text-white">
               No Facilities Found!
             </h2>
 
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400">
               You havent created any facilities yet.
             </p>
           </div>
@@ -322,7 +322,7 @@ const MyFacilitiesPage = () => {
               .map((facility) => (
                 <div
                   key={facility._id}
-                  className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-teal-100/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0F766E]/30 hover:shadow-xl"
+                  className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-teal-100/80 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0F766E]/30 hover:shadow-xl dark:border-gray-700 dark:bg-[#11192c] dark:hover:border-teal-700 dark:hover:shadow-black/30"
                 >
                   {/* Card Image */}
                   <div className="relative h-52 w-full overflow-hidden sm:h-56 lg:h-60">
@@ -362,28 +362,31 @@ const MyFacilitiesPage = () => {
 
                   {/* Card Content */}
                   <div className="flex flex-1 flex-col p-4 sm:p-5">
-                    <h2 className="mb-3 line-clamp-1 text-lg font-bold text-[#022C22] transition-colors group-hover:text-[#0F766E] sm:text-xl">
+                    <h2 className="mb-3 line-clamp-1 text-lg font-bold text-[#022C22] transition-colors group-hover:text-[#0F766E] sm:text-xl dark:text-white dark:group-hover:text-teal-400">
                       {facility.title}
                     </h2>
 
                     {/* Location */}
-                    <div className="mb-3 flex min-w-0 items-center gap-2 text-sm text-gray-600">
-                      <MapPin size={17} className="shrink-0 text-[#0F766E]" />
+                    <div className="mb-3 flex min-w-0 items-center gap-2 text-sm text-gray-600 dark:text-gray-300">
+                      <MapPin
+                        size={17}
+                        className="shrink-0 text-[#0F766E] dark:text-teal-400"
+                      />
                       <span className="truncate">{facility.location}</span>
                     </div>
 
                     {/* Description */}
-                    <p className="mb-5 line-clamp-2 min-h-10 text-sm leading-6 text-gray-500">
+                    <p className="mb-5 line-clamp-2 min-h-10 text-sm leading-6 text-gray-500 dark:text-gray-400">
                       {facility.description}
                     </p>
 
-                    <div className="mb-4 border-t border-gray-100" />
+                    <div className="mb-4 border-t border-gray-100 dark:border-gray-700" />
 
                     {/* Organizer */}
-                    <div className="mb-5 flex min-w-0 items-center gap-2 text-xs text-gray-500">
+                    <div className="mb-5 flex min-w-0 items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
                       <UserRound
                         size={15}
-                        className="shrink-0 text-[#0F766E]"
+                        className="shrink-0 text-[#0F766E] dark:text-teal-400"
                       />
                       <span className="truncate">
                         {facility.organizerEmail || "Event Organizer"}
@@ -395,7 +398,7 @@ const MyFacilitiesPage = () => {
                       {/* View */}
                       <Link
                         href={`/facilities/${facility._id}`}
-                        className="flex h-10 min-w-0 items-center justify-center gap-1 rounded-xl bg-slate-100 px-1.5 text-xs font-bold text-gray-700 transition hover:bg-[#0F766E]/10 hover:text-[#0F766E] sm:gap-1.5 sm:px-2"
+                        className="flex h-10 min-w-0 items-center justify-center gap-1 rounded-xl bg-slate-100 px-1.5 text-xs font-bold text-gray-700 transition hover:bg-[#0F766E]/10 hover:text-[#0F766E] sm:gap-1.5 sm:px-2 dark:bg-[#1c2940] dark:text-gray-200 dark:hover:bg-teal-500/15 dark:hover:text-teal-400"
                       >
                         <Eye size={15} />
                         View

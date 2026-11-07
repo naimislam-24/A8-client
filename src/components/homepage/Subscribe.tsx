@@ -1,7 +1,7 @@
 const Subscribe = () => {
   return (
     <div>
-      <section className="bg-slate-50 dark:bg-[#0b101d] py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+      <section className="dark:bg-[#11192c] dark:text-white py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
           {/* <!-- Title with Mail Icon --> */}
           <div className="flex items-center justify-center gap-3 mb-2">

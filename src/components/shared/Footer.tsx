@@ -12,7 +12,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#022C22] text-gray-300 pt-12 pb-6 px-4 sm:px-6 lg:px-8 border-t border-emerald-800/30">
+    <footer className="dark:bg-[#080d19] dark:text-white bg-[#022C22] text-gray-300 pt-12 pb-6 px-4 sm:px-6 lg:px-8 border-t border-emerald-800/30">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 pb-8 border-b border-emerald-800/30">
         {/* Left Column: Logo, Tagline & Social Icons */}
         <div className="space-y-4">

@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
+import ThemeProvider from "@/components/ThemeProvider";
+import { ToastContainer } from "react-toastify";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -22,9 +24,27 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${plusJakartaSans.className} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
-        <Navbar />
-        {children}
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            pauseOnHover
+            theme="colored"
+            toastStyle={{
+              background: "#0F766E",
+              color: "#FFFFFF",
+              border: "1px solid #115E59",
+              fontWeight: "600",
+              borderRadius: "12px",
+            }}
+          />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -1,68 +1,3 @@
-// import {
-//   AlertDialog,
-//   AlertDialogAction,
-//   AlertDialogCancel,
-//   AlertDialogContent,
-//   AlertDialogDescription,
-//   AlertDialogFooter,
-//   AlertDialogHeader,
-//   AlertDialogTitle,
-//   AlertDialogTrigger,
-// } from "@/components/ui/alert-dialog";
-// import { Trash2 } from "lucide-react";
-// import { redirect } from "next/navigation";
-
-// const DeleteFacilities = ({ id }) => {
-//   const handleDelete = async () => {
-//     const res = await fetch(
-//       `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/facilities/${id}`,
-//       {
-//         method: "DELETE",
-//       },
-//     );
-//     const data = await res.json();
-//     // console.log(data);
-//     redirect("/my-facilities");
-//   };
-
-//   return (
-//     <div>
-//       <AlertDialog>
-//         <AlertDialogTrigger
-//           render={
-//             <button
-//               //   onClick={() => handleDelete(facility._id)}
-//               className="flex items-center justify-center gap-1.5 rounded-xl bg-rose-50 px-6 py-3 text-sm font-semibold text-rose-600 transition hover:bg-rose-100"
-//             >
-//               <Trash2 size={15} />
-//               Delete
-//             </button>
-//           }
-//         >
-//           Show Dialog
-//         </AlertDialogTrigger>
-//         <AlertDialogContent>
-//           <AlertDialogHeader>
-//             <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-//             <AlertDialogDescription>
-//               This action cannot be undone. This will permanently delete your
-//               account from our servers.
-//             </AlertDialogDescription>
-//           </AlertDialogHeader>
-//           <AlertDialogFooter>
-//             <AlertDialogCancel>Cancel</AlertDialogCancel>
-//             <AlertDialogAction onClick={handleDelete}>
-//               Continue
-//             </AlertDialogAction>
-//           </AlertDialogFooter>
-//         </AlertDialogContent>
-//       </AlertDialog>
-//     </div>
-//   );
-// };
-
-// export default DeleteFacilities;
-
 "use client";
 
 import { useState } from "react";
@@ -117,7 +52,7 @@ const DeleteFacilities = ({ id }: { id: string }) => {
         render={
           <button
             type="button"
-            className="flex h-10 w-full min-w-0 items-center justify-center gap-1 rounded-xl bg-rose-50 px-1.5 text-xs font-semibold text-rose-600 transition hover:bg-rose-100 sm:gap-1.5 sm:px-2"
+            className="flex h-10 w-full min-w-0 items-center justify-center gap-1 rounded-xl bg-rose-50 px-1.5 text-xs font-semibold text-rose-600 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-rose-100 hover:shadow-md dark:bg-rose-500/10 dark:text-rose-400 dark:hover:bg-rose-500/20 sm:gap-1.5 sm:px-2"
           >
             <Trash2 size={14} />
             Delete
@@ -126,27 +61,32 @@ const DeleteFacilities = ({ id }: { id: string }) => {
       />
 
       {/* Confirmation Dialog */}
-      <AlertDialogContent className="w-[calc(100%-2rem)] max-w-md rounded-2xl p-5 sm:p-6">
-        <AlertDialogHeader>
-          <AlertDialogTitle className="text-lg font-bold text-gray-900 sm:text-xl">
+      <AlertDialogContent className="w-[calc(100%-2rem)] max-w-md rounded-2xl border border-gray-100 bg-white p-5 shadow-2xl dark:border-gray-700 dark:bg-[#11192c] sm:rounded-3xl sm:p-6">
+        <AlertDialogHeader className="space-y-3">
+          {/* Delete Icon */}
+          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 dark:bg-rose-500/10 dark:text-rose-400">
+            <Trash2 size={23} />
+          </div>
+
+          <AlertDialogTitle className="text-lg font-bold tracking-tight text-gray-900 dark:text-white sm:text-xl">
             Are you absolutely sure?
           </AlertDialogTitle>
 
-          <AlertDialogDescription className="text-sm leading-6 text-gray-500">
+          <AlertDialogDescription className="text-sm leading-6 text-gray-500 dark:text-gray-400">
             This action cannot be undone. This will permanently delete your
             event from our servers.
           </AlertDialogDescription>
         </AlertDialogHeader>
 
-        <AlertDialogFooter className="flex-col gap-2 sm:flex-row">
-          <AlertDialogCancel className="w-full rounded-xl sm:w-auto">
+        <AlertDialogFooter className="mt-5 flex-col gap-2 sm:flex-row sm:justify-end">
+          <AlertDialogCancel className="w-full rounded-xl border border-gray-200 bg-white text-sm font-semibold text-gray-700 transition-all hover:bg-gray-100 dark:border-gray-700 dark:bg-[#0b1120] dark:text-gray-300 dark:hover:bg-gray-800 sm:w-auto">
             Cancel
           </AlertDialogCancel>
 
           <AlertDialogAction
             onClick={handleDelete}
             disabled={deleting}
-            className="w-full rounded-xl bg-rose-600 text-white hover:bg-rose-700 sm:w-auto"
+            className="w-full rounded-xl bg-rose-600 text-sm font-bold text-white shadow-md shadow-rose-600/20 transition-all hover:bg-rose-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
             {deleting ? "Deleting..." : "Yes, Delete"}
           </AlertDialogAction>

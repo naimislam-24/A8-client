@@ -86,11 +86,11 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#f8fafc] px-4 py-10 sm:px-6">
+    <div className="flex min-h-screen items-center justify-center bg-white px-4 py-10 dark:bg-[#080d19] sm:px-6">
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#10b981] shadow-lg shadow-emerald-500/20">
+          <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0F766E] shadow-lg shadow-teal-500/20">
             <HeartHandshake
               size={27}
               className="text-white"
@@ -98,17 +98,17 @@ const SignUpPage = () => {
             />
           </div>
 
-          <h1 className="text-3xl font-extrabold tracking-tight text-[#111827] sm:text-4xl">
+          <h1 className="text-3xl font-extrabold tracking-tight text-[#1B3022] dark:text-white sm:text-4xl">
             Create Account
           </h1>
 
-          <p className="mt-2 text-sm text-gray-500 sm:text-base">
+          <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 sm:text-base">
             Join the community and start driving social change
           </p>
         </div>
 
         {/* Form Card */}
-        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_8px_40px_rgba(0,0,0,0.05)] sm:p-7">
+        <div className="rounded-2xl border border-gray-100 bg-white p-5 shadow-[0_8px_40px_rgba(0,0,0,0.05)] dark:border-gray-700 dark:bg-[#11192c] sm:p-7">
           <Form className="w-full" onSubmit={onSubmit}>
             <Fieldset className="w-full">
               <FieldGroup className="gap-5">
@@ -122,17 +122,17 @@ const SignUpPage = () => {
                       : null
                   }
                 >
-                  <Label className="mb-1.5 text-sm font-semibold text-gray-800">
+                  <Label className="mb-1.5 text-sm font-semibold text-gray-800 dark:text-white">
                     Full Name
                   </Label>
 
                   <div className="relative">
                     <UserRound
                       size={18}
-                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
+                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"
                     />
                     <Input
-                      className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-3 text-sm text-gray-800 outline-none transition-all placeholder:text-gray-400 focus-within:border-emerald-500 focus-within:bg-white"
+                      className="h-11 w-full rounded-xl border border-gray-200 bg-white pl-10 pr-3 text-sm text-gray-800 outline-none transition-all placeholder:text-gray-400 focus-within:border-[#0F766E] focus-within:bg-white dark:border-gray-700 dark:bg-[#080d19] dark:text-white dark:focus-within:bg-[#11192c]"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -141,17 +141,17 @@ const SignUpPage = () => {
 
                 {/* Email */}
                 <TextField isRequired name="email" type="email">
-                  <Label className="mb-1.5 text-sm font-semibold text-gray-800">
+                  <Label className="mb-1.5 text-sm font-semibold text-gray-800 dark:text-white">
                     Email Address
                   </Label>
 
                   <div className="relative">
                     <Mail
                       size={18}
-                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
+                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"
                     />
                     <Input
-                      className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-3 text-sm text-gray-800 outline-none transition-all placeholder:text-gray-400 focus-within:border-emerald-500 focus-within:bg-white"
+                      className="h-11 w-full rounded-xl border border-gray-200 bg-white pl-10 pr-3 text-sm text-gray-800 outline-none transition-all placeholder:text-gray-400 focus-within:border-[#0F766E] focus-within:bg-white dark:border-gray-700 dark:bg-[#080d19] dark:text-white dark:focus-within:bg-[#11192c]"
                       placeholder="name@example.com"
                     />
                   </div>
@@ -160,22 +160,22 @@ const SignUpPage = () => {
 
                 {/* Profile Image */}
                 <TextField name="image" type="url">
-                  <Label className="mb-1.5 text-sm font-semibold text-gray-800">
+                  <Label className="mb-1.5 text-sm font-semibold text-gray-800 dark:text-white">
                     Profile Photo URL
                   </Label>
 
                   <div className="relative">
                     <ImageIcon
                       size={18}
-                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
+                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"
                     />
                     <Input
-                      className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-3 text-sm text-gray-800 outline-none transition-all placeholder:text-gray-400 focus-within:border-emerald-500 focus-within:bg-white"
+                      className="h-11 w-full rounded-xl border border-gray-200 bg-white pl-10 pr-3 text-sm text-gray-800 outline-none transition-all placeholder:text-gray-400 focus-within:border-[#0F766E] focus-within:bg-white dark:border-gray-700 dark:bg-[#080d19] dark:text-white dark:focus-within:bg-[#11192c]"
                       placeholder="https://images.unsplash.com/..."
                     />
                   </div>
 
-                  <Description className="mt-1.5 text-xs text-gray-400">
+                  <Description className="mt-1.5 text-xs text-gray-400 dark:text-gray-500">
                     Optional: Leave empty for default avatar
                   </Description>
                   <FieldError />
@@ -199,19 +199,19 @@ const SignUpPage = () => {
                     return null;
                   }}
                 >
-                  <Label className="mb-1.5 text-sm font-semibold text-gray-800">
+                  <Label className="mb-1.5 text-sm font-semibold text-gray-800 dark:text-white">
                     Password
                   </Label>
 
                   <div className="relative">
                     <LockKeyhole
                       size={18}
-                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400"
+                      className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500"
                     />
 
                     <Input
                       type={showPassword ? "text" : "password"}
-                      className="h-11 w-full rounded-xl border border-gray-200 bg-gray-50 pl-10 pr-11 text-sm text-gray-800 outline-none transition-all placeholder:text-gray-400 focus-within:border-emerald-500 focus-within:bg-white"
+                      className="h-11 w-full rounded-xl border border-gray-200 bg-white pl-10 pr-11 text-sm text-gray-800 outline-none transition-all placeholder:text-gray-400 focus-within:border-[#0F766E] focus-within:bg-white dark:border-gray-700 dark:bg-[#080d19] dark:text-white dark:focus-within:bg-[#11192c]"
                       placeholder="Enter your password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
@@ -220,7 +220,7 @@ const SignUpPage = () => {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 transition-colors hover:text-emerald-600"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 transition-colors hover:text-[#0F766E] dark:text-gray-500 dark:hover:text-teal-400"
                       aria-label={
                         showPassword ? "Hide password" : "Show password"
                       }
@@ -239,14 +239,19 @@ const SignUpPage = () => {
                         className="flex items-center gap-2 text-xs"
                       >
                         {item.valid ? (
-                          <Check size={14} className="text-emerald-500" />
+                          <Check
+                            size={14}
+                            className="text-[#0F766E] dark:text-teal-400"
+                          />
                         ) : (
                           <X size={14} className="text-gray-400" />
                         )}
 
                         <span
                           className={
-                            item.valid ? "text-emerald-600" : "text-gray-400"
+                            item.valid
+                              ? "text-[#0F766E] dark:text-teal-400"
+                              : "text-gray-400 dark:text-gray-500"
                           }
                         >
                           {item.label}
@@ -262,7 +267,7 @@ const SignUpPage = () => {
                 <Button
                   type="submit"
                   isDisabled={loading}
-                  className="group flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#10a88a] text-sm font-bold text-white shadow-md shadow-emerald-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#059b7d] hover:shadow-lg"
+                  className="group flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#0F766E] text-sm font-bold text-white shadow-md shadow-teal-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#115E59] hover:shadow-lg dark:bg-[#0F766E] dark:hover:bg-[#115E59]"
                 >
                   {loading ? "Creating Account..." : "Register"}
 
@@ -276,11 +281,12 @@ const SignUpPage = () => {
               </Fieldset.Actions>
             </Fieldset>
           </Form>
+
           {/* Login Link */}
-          <p className="mt-6 text-center text-sm text-gray-500">
+          <p className="mt-6 text-center text-sm text-gray-500 dark:text-gray-400">
             Already have an account?{" "}
             <Link href={"/sign-in"}>
-              <button className="font-bold text-[#10a88a] transition-colors hover:text-emerald-700 hover:underline">
+              <button className="font-bold text-[#0F766E] transition-colors hover:text-[#115E59] hover:underline dark:text-teal-400 dark:hover:text-teal-300">
                 Login here
               </button>
             </Link>

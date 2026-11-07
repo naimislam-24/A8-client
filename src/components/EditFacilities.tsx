@@ -187,7 +187,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
 
   const label = (text: string, field: keyof FormState) => (
     <label className="label pb-1.5" htmlFor={field}>
-      <span className="text-sm font-bold text-gray-800">
+      <span className="text-sm font-bold text-gray-800 dark:text-white">
         {text} <span className="text-red-500">*</span>
       </span>
     </label>
@@ -205,7 +205,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
       <DialogTrigger>
         <button
           type="button"
-          className="flex h-10 w-full min-w-0 items-center justify-center gap-1 rounded-xl bg-indigo-50 px-1.5 text-xs font-semibold text-indigo-600 transition hover:bg-indigo-100 sm:gap-1.5 sm:px-2"
+          className="flex h-10 w-full min-w-0 items-center justify-center gap-1 rounded-xl bg-indigo-50 px-1.5 text-xs font-semibold text-indigo-600 transition hover:bg-indigo-100 dark:bg-indigo-500/10 dark:text-indigo-400 dark:hover:bg-indigo-500/20 sm:gap-1.5 sm:px-2"
         >
           <Pencil size={14} />
           Edit
@@ -213,15 +213,14 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
       </DialogTrigger>
 
       {/* Edit Modal */}
-
-      <DialogContent className="max-h-[82vh] w-[calc(100%-16px)] max-w-4xl overflow-y-auto overscroll-contain rounded-2xl border border-gray-100 bg-white p-4 shadow-2xl sm:w-[94vw] sm:rounded-3xl sm:p-6">
+      <DialogContent className="max-h-[82vh] w-[calc(100%-16px)] max-w-4xl overflow-y-auto overscroll-contain rounded-2xl border border-gray-100 bg-white p-4 shadow-2xl dark:border-gray-700 dark:bg-[#11192c] sm:w-[94vw] sm:rounded-3xl sm:p-6">
         {/* <DialogContent className="!fixed !left-1/2 !top-1/2 !w-[80vw] !max-w-[1100px] !translate-x-[-50%] !translate-y-[-50%] max-h-[82vh] overflow-y-auto overscroll-contain rounded-2xl border border-gray-100 bg-white p-4 shadow-2xl sm:rounded-3xl sm:p-7"> */}
-        <DialogHeader className="mb-4 space-y-1.5 border-b border-gray-100 pb-4">
-          <DialogTitle className="text-xl font-extrabold tracking-tight text-[#022C22] sm:text-2xl">
+        <DialogHeader className="mb-4 space-y-1.5 border-b border-gray-100 pb-4 dark:border-gray-700">
+          <DialogTitle className="text-xl font-extrabold tracking-tight text-[#022C22] dark:text-white sm:text-2xl">
             Edit Event
           </DialogTitle>
 
-          <DialogDescription className="text-xs leading-relaxed text-gray-500 sm:text-sm">
+          <DialogDescription className="text-xs leading-relaxed text-gray-500 dark:text-gray-400 sm:text-sm">
             Update your community event information below.
           </DialogDescription>
         </DialogHeader>
@@ -239,7 +238,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
                   id="title"
                   type="text"
                   placeholder="Enter event title"
-                  className={`${inputClass("title")} rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10`}
+                  className={`${inputClass("title")} rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 dark:border-gray-700 dark:bg-[#0b1120] dark:text-white dark:placeholder:text-gray-500 dark:hover:border-gray-600 dark:focus:bg-[#0b1120]`}
                   value={form.title}
                   onChange={(e) => set("title", e.target.value)}
                 />
@@ -263,7 +262,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
 
                   <select
                     id="eventType"
-                    className={`${inputClass("eventType")} appearance-none rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10`}
+                    className={`${inputClass("eventType")} appearance-none rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 dark:border-gray-700 dark:bg-[#0b1120] dark:text-white dark:hover:border-gray-600 dark:focus:bg-[#0b1120]`}
                     value={form.eventType}
                     onChange={(e) => set("eventType", e.target.value)}
                   >
@@ -297,7 +296,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
                     id="date"
                     type="date"
                     min={today}
-                    className={`${inputClass("date")} rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10`}
+                    className={`${inputClass("date")} rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 dark:border-gray-700 dark:bg-[#0b1120] dark:text-white dark:hover:border-gray-600 dark:focus:bg-[#0b1120]`}
                     value={form.date}
                     onChange={(e) => set("date", e.target.value)}
                   />
@@ -322,7 +321,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
                   id="location"
                   type="text"
                   placeholder="Enter location or venue"
-                  className={`${inputClass("location")} rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10`}
+                  className={`${inputClass("location")} rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 dark:border-gray-700 dark:bg-[#0b1120] dark:text-white dark:placeholder:text-gray-500 dark:hover:border-gray-600 dark:focus:bg-[#0b1120]`}
                   value={form.location}
                   onChange={(e) => set("location", e.target.value)}
                 />
@@ -346,7 +345,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
                   id="thumbnail"
                   type="url"
                   placeholder="https://example.com/image.jpg"
-                  className={`${inputClass("thumbnail")} rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10`}
+                  className={`${inputClass("thumbnail")} rounded-xl border border-gray-200 bg-gray-50 py-2.5 text-sm transition-all duration-200 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 dark:border-gray-700 dark:bg-[#0b1120] dark:text-white dark:placeholder:text-gray-500 dark:hover:border-gray-600 dark:focus:bg-[#0b1120]`}
                   value={form.thumbnail}
                   onChange={(e) => set("thumbnail", e.target.value)}
                 />
@@ -359,9 +358,12 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
               )}
 
               {/* Quick Photo Presets */}
-              <div className="mt-3 rounded-xl border border-dashed border-teal-200 bg-teal-50/50 p-3 sm:p-3.5">
-                <p className="mb-3 flex items-center gap-2 text-xs font-bold text-gray-600 sm:text-sm">
-                  <ImageIcon size={15} className="text-teal-600" />
+              <div className="mt-3 rounded-xl border border-dashed border-teal-200 bg-teal-50/50 p-3 dark:border-teal-800 dark:bg-teal-950/20 sm:p-3.5">
+                <p className="mb-3 flex items-center gap-2 text-xs font-bold text-gray-600 dark:text-gray-300 sm:text-sm">
+                  <ImageIcon
+                    size={15}
+                    className="text-teal-600 dark:text-teal-400"
+                  />
                   Quick Photo Presets
                 </p>
 
@@ -374,7 +376,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
                       className={`rounded-lg border px-3 py-2 text-xs font-semibold transition-all duration-200 ${
                         form.thumbnail === preset.url
                           ? "border-teal-600 bg-teal-600 text-white shadow-sm"
-                          : "border-teal-100 bg-white text-teal-700 hover:border-teal-400 hover:bg-teal-50"
+                          : "border-teal-100 bg-white text-teal-700 hover:border-teal-400 hover:bg-teal-50 dark:border-teal-800 dark:bg-[#0b1120] dark:text-teal-400 dark:hover:border-teal-600 dark:hover:bg-teal-950/40"
                       }`}
                     >
                       {preset.label}
@@ -392,8 +394,10 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
                 id="description"
                 rows={4}
                 placeholder="Describe the event, what volunteers will do, and what to bring..."
-                className={`w-full resize-y rounded-xl border bg-gray-50 px-4 py-2.5 text-sm text-gray-700 outline-none transition-all duration-200 placeholder:text-gray-400 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 ${
-                  errors.description ? "border-red-400" : "border-gray-200"
+                className={`w-full resize-y rounded-xl border bg-gray-50 px-4 py-2.5 text-sm text-gray-700 outline-none transition-all duration-200 placeholder:text-gray-400 hover:border-gray-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 dark:bg-[#0b1120] dark:text-white dark:placeholder:text-gray-500 dark:hover:border-gray-600 dark:focus:bg-[#0b1120] ${
+                  errors.description
+                    ? "border-red-400"
+                    : "border-gray-200 dark:border-gray-700"
                 }`}
                 value={form.description}
                 onChange={(e) => set("description", e.target.value)}
@@ -412,8 +416,8 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
                 role="alert"
                 className={`rounded-xl border p-3 text-sm font-medium ${
                   status.type === "success"
-                    ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                    : "border-red-200 bg-red-50 text-red-700"
+                    ? "border-emerald-200 bg-emerald-50 text-emerald-700 dark:border-emerald-800 dark:bg-emerald-950/30 dark:text-emerald-400"
+                    : "border-red-200 bg-red-50 text-red-700 dark:border-red-800 dark:bg-red-950/30 dark:text-red-400"
                 }`}
               >
                 {status.message}
@@ -421,7 +425,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
             )}
 
             {/* Submit */}
-            <div className="border-t border-gray-100 pt-3">
+            <div className="border-t border-gray-100 pt-3 dark:border-gray-700">
               <button
                 type="submit"
                 disabled={submitting}

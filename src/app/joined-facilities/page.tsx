@@ -104,19 +104,19 @@ const JoinFacilitiesPage = () => {
   }
 
   return (
-    <section className="min-h-screen bg-[#f5f8f7] px-4 py-12 sm:px-6 lg:px-8">
+    <section className="min-h-screen bg-[#f5f8f7] px-4 py-12 dark:bg-[#080d19] sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-10">
-          <span className="text-sm font-semibold uppercase tracking-widest text-teal-600">
+          <span className="text-sm font-semibold uppercase tracking-widest text-teal-600 dark:text-teal-400">
             My Activities
           </span>
 
-          <h1 className="mt-2 text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h1 className="mt-2 text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
             Joined Facilities
           </h1>
 
-          <p className="mt-3 text-gray-500">
+          <p className="mt-3 text-gray-500 dark:text-gray-400">
             Manage your joined community events and make a difference.
           </p>
         </div>
@@ -130,7 +130,7 @@ const JoinFacilitiesPage = () => {
             .map((booking) => (
               <div
                 key={booking._id}
-                className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-gray-700 dark:bg-[#11192c] dark:hover:border-gray-600"
               >
                 {/* Image */}
                 <div className="relative h-60 overflow-hidden">
@@ -164,33 +164,39 @@ const JoinFacilitiesPage = () => {
                 {/* Card Content */}
                 <div className="p-5">
                   {/* Title */}
-                  <h2 className="line-clamp-1 text-xl font-bold text-gray-900 transition-colors group-hover:text-teal-700">
+                  <h2 className="line-clamp-1 text-xl font-bold text-gray-900 transition-colors group-hover:text-teal-700 dark:text-white dark:group-hover:text-teal-400">
                     {booking.title}
                   </h2>
 
                   {/* Location */}
-                  <div className="mt-3 flex items-center gap-2 text-sm text-gray-500">
-                    <MapPin size={17} className="shrink-0 text-teal-600" />
+                  <div className="mt-3 flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                    <MapPin
+                      size={17}
+                      className="shrink-0 text-teal-600 dark:text-teal-400"
+                    />
                     <span>{booking.location}</span>
                   </div>
 
                   {/* Confirmation */}
-                  <div className="mt-5 flex items-start gap-2 rounded-lg bg-teal-50 p-3">
+                  <div className="mt-5 flex items-start gap-2 rounded-lg bg-teal-50 p-3 dark:bg-teal-950/30">
                     <CheckCircle2
                       size={18}
-                      className="mt-0.5 shrink-0 text-teal-600"
+                      className="mt-0.5 shrink-0 text-teal-600 dark:text-teal-400"
                     />
 
-                    <p className="text-xs font-medium leading-relaxed text-teal-800">
+                    <p className="text-xs font-medium leading-relaxed text-teal-800 dark:text-teal-300">
                       {booking.description}
                     </p>
                   </div>
 
                   {/* Joined Date */}
-                  <div className="mt-4 flex items-center gap-2 border-t border-gray-100 pt-4 text-sm">
-                    <Clock size={16} className="text-teal-600" />
+                  <div className="mt-4 flex items-center gap-2 border-t border-gray-100 pt-4 text-sm dark:border-gray-700">
+                    <Clock
+                      size={16}
+                      className="text-teal-600 dark:text-teal-400"
+                    />
 
-                    <span className="font-semibold text-teal-700">
+                    <span className="font-semibold text-teal-700 dark:text-teal-400">
                       Joined{" "}
                       {new Date(booking.bookingDate).toLocaleDateString(
                         "en-US",

@@ -18,6 +18,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -25,7 +26,7 @@ const Navbar = () => {
   const user = session?.user;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#022C22]/95 text-white shadow-lg shadow-black/20 backdrop-blur-xl">
+    <header className="dark:bg-[#11192c] dark:text-white  sticky top-0 z-50 w-full border-b border-white/10 bg-[#022C22]/95 text-white shadow-lg shadow-black/20 backdrop-blur-xl">
       {/* <nav className="navbar mx-auto min-h-[76px] max-w-7xl px-4 sm:px-6 lg:px-8"> */}
       <nav className="navbar mx-auto min-h-[76px] max-w-7xl">
         {/* Logo */}
@@ -55,12 +56,13 @@ const Navbar = () => {
 
         {session?.user ? (
           <div className="navbar-end gap-2 sm:gap-4">
-            <button
+            {/* <button
               className="btn btn-ghost btn-circle btn-sm text-white/80 transition-all hover:bg-[#0F766E]/20 hover:text-[#2DD4BF] sm:btn-md"
               aria-label="Theme"
             >
               <Moon size={21} />
-            </button>
+            </button> */}
+            <ThemeToggle />
 
             <Popover open={open} onOpenChange={setOpen}>
               <PopoverTrigger
@@ -83,11 +85,10 @@ const Navbar = () => {
                   </button>
                 }
               />
-
               <PopoverContent
                 align="end"
                 sideOffset={12}
-                className="w-64 overflow-hidden rounded-xl border border-gray-200 bg-white p-0 text-gray-800 shadow-xl"
+                className="w-64 overflow-hidden rounded-xl border border-gray-200 bg-white p-0 text-gray-800 shadow-xl dark:border-gray-700 dark:bg-[#11192c] dark:text-white"
               >
                 {/* Profile Info */}
                 <div className="flex items-center gap-3 p-4">
@@ -102,23 +103,23 @@ const Navbar = () => {
                   </Avatar>
 
                   <div className="min-w-0 flex-1">
-                    <h3 className="truncate text-sm font-bold text-gray-900">
+                    <h3 className="truncate text-sm font-bold text-gray-900 dark:!text-white">
                       {user?.name}
                     </h3>
-                    <p className="truncate text-xs text-gray-500">
+                    <p className="truncate text-xs text-gray-500 dark:!text-gray-300">
                       {user?.email}
                     </p>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-100" />
+                <div className="border-t border-gray-100 dark:border-gray-700" />
 
                 {/* Menu Items */}
                 <div className="space-y-1 p-2">
                   <Link
                     href="/add-facilities"
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#0F766E]/10 hover:text-[#0F766E]"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#0F766E]/10 hover:text-[#0F766E] dark:!text-white dark:hover:bg-[#0F766E]/20 dark:hover:!text-[#2DD4BF]"
                   >
                     <PlusCircle size={18} className="text-[#0F766E]" />
                     Create Event
@@ -127,7 +128,7 @@ const Navbar = () => {
                   <Link
                     href="/my-facilities"
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-purple-50 hover:text-purple-600"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-purple-50 hover:text-purple-600 dark:!text-white dark:hover:bg-purple-500/15 dark:hover:!text-purple-400"
                   >
                     <Settings size={18} className="text-purple-500" />
                     Manage Events
@@ -136,14 +137,14 @@ const Navbar = () => {
                   <Link
                     href="/joined-facilities"
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#0F766E]/10 hover:text-[#0F766E]"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#0F766E]/10 hover:text-[#0F766E] dark:!text-white dark:hover:bg-[#0F766E]/20 dark:hover:!text-[#2DD4BF]"
                   >
                     <CircleCheck size={18} className="text-[#0F766E]" />
                     Joined Events
                   </Link>
                 </div>
 
-                <div className="border-t border-gray-100" />
+                <div className="border-t border-gray-100 dark:border-gray-700" />
 
                 {/* Logout */}
                 <div className="p-2">
@@ -152,7 +153,7 @@ const Navbar = () => {
                       setOpen(false);
                       signOut();
                     }}
-                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-red-500 transition-all hover:bg-red-50 hover:text-red-600"
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-red-500 transition-all hover:bg-red-50 hover:text-red-600 dark:!text-red-400 dark:hover:bg-red-500/15 dark:hover:!text-red-300"
                   >
                     <LogOut size={18} />
                     Logout
@@ -171,12 +172,13 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="navbar-end gap-2 sm:gap-4">
-            <button
+            {/* <button
               className="btn btn-ghost btn-circle btn-sm text-white/80 transition-all hover:bg-[#0F766E]/20 hover:text-[#2DD4BF] sm:btn-md"
               aria-label="Theme"
             >
               <Moon size={21} />
-            </button>
+            </button> */}
+            <ThemeToggle />
             <Link href={"/sign-in"}>
               <button className="btn min-h-8 rounded-lg border-0 bg-[#0F766E] px-2.5 text-xs font-bold text-white shadow-md shadow-[#0F766E]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#115E59] hover:shadow-lg sm:min-h-11 sm:rounded-xl sm:px-6 sm:text-base">
                 <LogIn size={17} />

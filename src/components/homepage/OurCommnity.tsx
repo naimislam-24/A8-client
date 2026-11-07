@@ -10,7 +10,7 @@ import image7 from "@/app/images/image-7.jpg";
 const OurCommnity = () => {
   return (
     <div>
-      <section className="bg-[#022C22] py-12 px-4 sm:px-6 lg:px-8 text-white">
+      <section className="dark:bg-[#080d19] dark:text-white bg-[#022C22] py-12 px-4 sm:px-6 lg:px-8 text-white">
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
           <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 tracking-wide">
