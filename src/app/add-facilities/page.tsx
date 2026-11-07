@@ -1,9 +1,9 @@
 "use client";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import {
   ArrowLeft,
@@ -185,7 +185,7 @@ export default function AddFacilitiesPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50/50 px-3 sm:px-5 dark:from-[#080d19] dark:via-[#0b1120] dark:to-[#0f2028]">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 via-white to-teal-50/50 px-3 sm:px-5 dark:from-[#080d19] dark:via-[#0b1120] dark:to-[#0f2028]">
       {/* Main Container */}
       <div className="mx-auto max-w-2xl py-5 sm:py-7 md:py-9">
         {/* Back Button */}

@@ -1,6 +1,6 @@
 "use client";
 
-import { authClient, signIn } from "@/lib/auth-client";
+import { signIn } from "@/lib/auth-client";
 
 import {
   Button,

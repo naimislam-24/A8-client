@@ -1,16 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  MapPin,
-  CalendarDays,
-  Users,
-  ArrowLeft,
-  Mail,
-  Tag,
-  Heart,
-  Share2,
-} from "lucide-react";
+import { MapPin, CalendarDays, ArrowLeft, Tag, Heart } from "lucide-react";
 import BookCard from "@/components/booking/BookCard";
 
 type TEvent = {
@@ -69,7 +60,7 @@ const DetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
         </Link>
 
         {/* Hero Image */}
-        <section className="relative h-[300px] w-full overflow-hidden rounded-2xl shadow-lg sm:h-[400px] lg:h-[480px]">
+        <section className="relative h-75 w-full overflow-hidden rounded-2xl shadow-lg sm:h-100 lg:h-120">
           <Image
             src={event.thumbnail}
             alt={event.title}
@@ -80,7 +71,7 @@ const DetailsPage = async ({ params }: { params: Promise<{ id: string }> }) => {
             className="object-cover object-center"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-transparent" />
 
           <div className="absolute inset-0 flex flex-col justify-end p-5 sm:p-8 lg:p-10">
             <span className="mb-4 w-fit rounded-full border border-white/30 bg-white/20 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-md">

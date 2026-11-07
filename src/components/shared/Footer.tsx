@@ -7,7 +7,6 @@ import {
   Mail,
   Phone,
   MapPin,
-  Globe,
 } from "lucide-react";
 
 const Footer = () => {

@@ -143,7 +143,7 @@ const JoinFacilitiesPage = () => {
                   />
 
                   {/* Image Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/10" />
 
                   {/* Event Type */}
                   <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-xs font-bold text-teal-700 shadow-sm backdrop-blur-sm">

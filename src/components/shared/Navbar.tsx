@@ -3,7 +3,6 @@ import { signOut, useSession } from "@/lib/auth-client";
 import {
   HeartHandshake,
   CalendarDays,
-  Moon,
   LogIn,
   LogOut,
   Settings,
@@ -28,7 +27,7 @@ const Navbar = () => {
   return (
     <header className="dark:bg-[#11192c] dark:text-white  sticky top-0 z-50 w-full border-b border-white/10 bg-[#022C22]/95 text-white shadow-lg shadow-black/20 backdrop-blur-xl">
       {/* <nav className="navbar mx-auto min-h-[76px] max-w-7xl px-4 sm:px-6 lg:px-8"> */}
-      <nav className="navbar mx-auto min-h-[76px] max-w-7xl">
+      <nav className="navbar mx-auto min-h-19 max-w-7xl">
         {/* Logo */}
         <div className="navbar-start">
           <Link href="/" className="group flex items-center gap-2.5">
@@ -103,10 +102,10 @@ const Navbar = () => {
                   </Avatar>
 
                   <div className="min-w-0 flex-1">
-                    <h3 className="truncate text-sm font-bold text-gray-900 dark:!text-white">
+                    <h3 className="truncate text-sm font-bold text-gray-900 dark:text-white!">
                       {user?.name}
                     </h3>
-                    <p className="truncate text-xs text-gray-500 dark:!text-gray-300">
+                    <p className="truncate text-xs text-gray-500 dark:text-gray-300!">
                       {user?.email}
                     </p>
                   </div>
@@ -119,7 +118,7 @@ const Navbar = () => {
                   <Link
                     href="/add-facilities"
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#0F766E]/10 hover:text-[#0F766E] dark:!text-white dark:hover:bg-[#0F766E]/20 dark:hover:!text-[#2DD4BF]"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#0F766E]/10 hover:text-[#0F766E] dark:text-white! dark:hover:bg-[#0F766E]/20 dark:hover:text-[#2DD4BF]!"
                   >
                     <PlusCircle size={18} className="text-[#0F766E]" />
                     Create Event
@@ -128,7 +127,7 @@ const Navbar = () => {
                   <Link
                     href="/my-facilities"
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-purple-50 hover:text-purple-600 dark:!text-white dark:hover:bg-purple-500/15 dark:hover:!text-purple-400"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-purple-50 hover:text-purple-600 dark:text-white! dark:hover:bg-purple-500/15 dark:hover:text-purple-400!"
                   >
                     <Settings size={18} className="text-purple-500" />
                     Manage Events
@@ -137,7 +136,7 @@ const Navbar = () => {
                   <Link
                     href="/joined-facilities"
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#0F766E]/10 hover:text-[#0F766E] dark:!text-white dark:hover:bg-[#0F766E]/20 dark:hover:!text-[#2DD4BF]"
+                    className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-all hover:bg-[#0F766E]/10 hover:text-[#0F766E] dark:text-white! dark:hover:bg-[#0F766E]/20 dark:hover:text-[#2DD4BF]!"
                   >
                     <CircleCheck size={18} className="text-[#0F766E]" />
                     Joined Events
@@ -153,7 +152,7 @@ const Navbar = () => {
                       setOpen(false);
                       signOut();
                     }}
-                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-red-500 transition-all hover:bg-red-50 hover:text-red-600 dark:!text-red-400 dark:hover:bg-red-500/15 dark:hover:!text-red-300"
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-red-500 transition-all hover:bg-red-50 hover:text-red-600 dark:text-red-400! dark:hover:bg-red-500/15 dark:hover:text-red-300!"
                   >
                     <LogOut size={18} />
                     Logout

@@ -4,7 +4,7 @@ import bannerImage from "@/app/images/istockphoto-1870467143-612x612.jpg";
 
 const Banner = () => {
   return (
-    <section className="relative isolate flex min-h-[580px] w-full items-center overflow-hidden bg-[#022C22] transition-colors duration-300 dark:bg-[#080d19] sm:min-h-[650px] lg:min-h-[700px]">
+    <section className="relative isolate flex min-h-145 w-full items-center overflow-hidden bg-[#022C22] transition-colors duration-300 dark:bg-[#080d19] sm:min-h-162.5 lg:min-h-175">
       {/* Background Image */}
       <div
         className="absolute inset-0 -z-25 bg-cover bg-center bg-no-repeat"
@@ -14,10 +14,10 @@ const Banner = () => {
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-r from-[#022C22]/65 via-[#064E3B]/40 to-transparent dark:from-[#080d19]/80 dark:via-[#080d19]/55 dark:to-[#080d19]/15" />
+      <div className="absolute inset-0 -z-20 bg-linear-to-r from-[#022C22]/65 via-[#064E3B]/40 to-transparent dark:from-[#080d19]/80 dark:via-[#080d19]/55 dark:to-[#080d19]/15" />
 
       {/* Extra Subtle Overlay */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#022C22]/30 via-transparent to-transparent dark:from-[#080d19]/50 dark:via-transparent dark:to-[#080d19]/20" />
+      <div className="absolute inset-0 -z-10 bg-linear-to-t from-[#022C22]/30 via-transparent to-transparent dark:from-[#080d19]/50 dark:via-transparent dark:to-[#080d19]/20" />
 
       {/* Content */}
       <div className="mx-auto w-full max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
@@ -32,7 +32,7 @@ const Banner = () => {
           <h1 className="text-4xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
             Together for
             <br />a Better{" "}
-            <span className="bg-gradient-to-r from-[#70E443] to-[#B5FF83] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#70E443] to-[#B5FF83] bg-clip-text text-transparent">
               Community
             </span>
           </h1>
@@ -64,7 +64,7 @@ const Banner = () => {
       </div>
 
       {/* Bottom Decoration */}
-      <div className="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-transparent via-[#2DD4BF]/70 to-transparent" />
+      <div className="absolute bottom-0 left-0 h-1 w-full bg-linear-to-r from-transparent via-[#2DD4BF]/70 to-transparent" />
     </section>
   );
 };

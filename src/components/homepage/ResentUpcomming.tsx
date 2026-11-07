@@ -35,7 +35,7 @@ const ResentUpcomming = async () => {
         <div className="mx-auto mb-12 max-w-2xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-[#022C22] dark:text-white sm:text-4xl lg:text-5xl">
             Recent Upcoming{" "}
-            <span className="bg-gradient-to-r from-[#0F766E] to-[#2DD4BF] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#0F766E] to-[#2DD4BF] bg-clip-text text-transparent">
               Events
             </span>
           </h2>
@@ -63,7 +63,7 @@ const ResentUpcomming = async () => {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/10" />
 
                   {/* Category Badge */}
                   <div className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-teal-200/60 bg-[#E6F4F1]/90 px-3 py-1.5 text-xs font-bold text-[#0F766E] shadow-sm backdrop-blur-md">
@@ -100,7 +100,7 @@ const ResentUpcomming = async () => {
                   </div>
 
                   {/* Description */}
-                  <p className="mt-3 line-clamp-2 min-h-[2.75rem] text-sm leading-6 text-gray-500 dark:text-gray-400">
+                  <p className="mt-3 line-clamp-2 min-h-11 text-sm leading-6 text-gray-500 dark:text-gray-400">
                     {event.description}
                   </p>
 

@@ -49,7 +49,7 @@ const features = [
 
 const KeyFeatures = () => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#f7fbff] to-white px-4 py-20 text-gray-900 transition-colors duration-300 dark:from-[#080d19] dark:via-[#11192c] dark:to-[#080d19] dark:text-white sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-linear-to-b from-white via-[#f7fbff] to-white px-4 py-20 text-gray-900 transition-colors duration-300 dark:from-[#080d19] dark:via-[#11192c] dark:to-[#080d19] dark:text-white sm:px-6 lg:px-8">
       {/* Background Decoration */}
       <div className="pointer-events-none absolute -left-24 top-20 h-64 w-64 rounded-full bg-blue-200/30 blur-3xl dark:bg-blue-500/10" />
       <div className="pointer-events-none absolute -right-24 bottom-10 h-64 w-64 rounded-full bg-emerald-200/30 blur-3xl dark:bg-emerald-500/10" />
@@ -59,7 +59,7 @@ const KeyFeatures = () => {
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#022C22] dark:text-white sm:text-4xl lg:text-5xl">
             Our Key{" "}
-            <span className="bg-gradient-to-r from-[#0F766E] to-[#2DD4BF] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-[#0F766E] to-[#2DD4BF] bg-clip-text text-transparent">
               Features
             </span>
           </h2>
@@ -101,7 +101,7 @@ const KeyFeatures = () => {
                 </p>
 
                 {/* Bottom Decoration */}
-                <div className="mx-auto mt-6 h-1 w-10 rounded-full bg-gradient-to-r from-teal-400 to-blue-500 transition-all duration-300 group-hover:w-20" />
+                <div className="mx-auto mt-6 h-1 w-10 rounded-full bg-linear-to-r from-teal-400 to-blue-500 transition-all duration-300 group-hover:w-20" />
 
                 {/* Hover Arrow */}
                 <ArrowUpRight
