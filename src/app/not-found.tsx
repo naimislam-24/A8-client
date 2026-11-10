@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { HeartHandshake, Home, ArrowLeft, SearchX } from "lucide-react";
 
