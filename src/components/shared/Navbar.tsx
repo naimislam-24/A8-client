@@ -36,10 +36,6 @@ const Navbar = () => {
             </div>
 
             <div>
-              {/* <span className="text-xl font-extrabold leading-tight tracking-tight text-white sm:text-2xl">
-                Good<span className="text-[#70E443]">Gather</span>
-              </span> */}
-
               <span className="flex flex-col text-xl font-extrabold leading-[0.85] tracking-tight text-white sm:flex-row sm:items-center sm:gap-0.5 sm:text-2xl">
                 <span>Good</span>
                 <span className="text-[#70E443]">Gather</span>
