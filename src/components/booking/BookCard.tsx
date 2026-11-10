@@ -1,6 +1,7 @@
 "use client";
 
 import { useSession } from "@/lib/auth-client";
+import { getTokenFromClient } from "@/lib/getTokenFromClient";
 import { MapPin, CalendarDays, Users, Mail, Tag, Share2 } from "lucide-react";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
@@ -44,6 +45,7 @@ const BookCard = ({ event }: { event: TEvent }) => {
 
     try {
       setLoading(true);
+      const token = await getTokenFromClient();
 
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/facilities/bookings`,
@@ -51,6 +53,7 @@ const BookCard = ({ event }: { event: TEvent }) => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify(bookingData),
         },

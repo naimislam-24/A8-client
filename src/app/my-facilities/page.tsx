@@ -7,6 +7,7 @@ import Link from "next/link";
 import { MapPin, CalendarDays, UserRound, Eye, Tag } from "lucide-react";
 import EditFacilities from "@/components/EditFacilities";
 import DeleteFacilities from "@/components/DeleteFacilities";
+import { getTokenFromClient } from "@/lib/getTokenFromClient";
 
 type TFacility = {
   _id: string;
@@ -22,8 +23,6 @@ type TFacility = {
 const MyFacilitiesPage = () => {
   const { data: session, isPending } = useSession();
 
-  // const token = await getTokenFromClient();
-
   const user = session?.user?.email;
 
   const [facilities, setFacilities] = useState<TFacility[]>([]);
@@ -38,25 +37,33 @@ const MyFacilitiesPage = () => {
       return;
     }
 
-    fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/my-facilities/${encodeURIComponent(user)}`,
-      // {
-      //    headers: {
-      //             authorization: `Bearer ${token}`,
-      //            },
-      // }
-    )
-      .then((res) => {
+    const fetchFacilities = async () => {
+      try {
+        const token = await getTokenFromClient();
+
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/my-facilities/${encodeURIComponent(user)}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
+        );
+
         if (!res.ok) {
           throw new Error("Failed to fetch facilities");
         }
-        return res.json();
-      })
-      .then((data) => {
+
+        const data = await res.json();
         setFacilities(Array.isArray(data) ? data : []);
-      })
-      .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFacilities();
   }, [user, isPending]);
 
   if (isPending || loading) {

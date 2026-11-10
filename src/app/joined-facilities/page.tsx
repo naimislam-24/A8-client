@@ -11,6 +11,7 @@ import {
   Clock,
 } from "lucide-react";
 import Image from "next/image";
+import { getTokenFromClient } from "@/lib/getTokenFromClient";
 
 type TBooking = {
   _id: string;
@@ -44,9 +45,15 @@ const JoinFacilitiesPage = () => {
     const fetchBookings = async () => {
       try {
         setLoading(true);
+        const token = await getTokenFromClient();
 
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/facilities/bookings/${encodeURIComponent(email)}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          },
         );
 
         if (!res.ok) {

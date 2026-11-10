@@ -8,6 +8,7 @@ import {
   Phone,
   MapPin,
 } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -83,28 +84,28 @@ const Footer = () => {
           </h3>
           <ul className="space-y-3 text-sm">
             <li>
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
               >
                 <Home className="w-4 h-4 text-white" /> Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/facilities"
                 className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
               >
                 <Calendar className="w-4 h-4 text-white" /> Upcoming Event
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
+                href="/add-facilities"
                 className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
               >
                 <Users className="w-4 h-4 text-white" /> Create Event
-              </a>
+              </Link>
             </li>
             <li>
               <a
