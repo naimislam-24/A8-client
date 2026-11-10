@@ -20,7 +20,7 @@ const Footer = () => {
             {/* <div className="bg-emerald-600/20 p-2 rounded-xl text-emerald-400">
               <HeartHandshake className="w-8 h-8 text-white" />
             </div> */}
-            <div className="bg-emerald-600/20 p-2 rounded-xl text-emerald-400">
+            <div className="bg-[#0F766E]/30 p-2 rounded-xl text-[#2DD4BF]">
               <HeartHandshake className="w-8 h-8" />
             </div>
             <span className="text-xl font-bold tracking-wide text-white">

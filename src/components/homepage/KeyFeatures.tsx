@@ -55,6 +55,7 @@ const KeyFeatures = () => {
       <div className="pointer-events-none absolute -right-24 bottom-10 h-64 w-64 rounded-full bg-emerald-200/30 blur-3xl dark:bg-emerald-500/10" />
 
       <div className="relative mx-auto max-w-7xl">
+        {/* <div className="relative mx-auto container px-4 sm:px-6 lg:px-8"> */}
         {/* Section Heading */}
         <div className="mx-auto mb-14 max-w-2xl text-center">
           <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#022C22] dark:text-white sm:text-4xl lg:text-5xl">
