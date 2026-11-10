@@ -161,11 +161,19 @@ const Navbar = () => {
               </PopoverContent>
             </Popover>
 
-            <button
+            {/* <button
               onClick={() => signOut()}
               className="btn min-h-8 rounded-lg border-0 bg-[#0F766E] px-2.5 text-xs font-bold text-white shadow-md shadow-[#0F766E]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#115E59] hover:shadow-lg sm:min-h-11 sm:rounded-xl sm:px-6 sm:text-base"
             >
               <LogOut size={17} />
+              Log Out
+            </button> */}
+
+            <button
+              onClick={() => signOut()}
+              className="btn min-h-7 rounded-lg border-0 bg-[#0F766E] px-2 text-[11px] font-bold text-white shadow-md shadow-[#0F766E]/20 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#115E59] hover:shadow-lg sm:min-h-11 sm:rounded-xl sm:px-6 sm:text-base"
+            >
+              <LogOut size={15} className="sm:h-4.25 sm:w-4.25" />
               Log Out
             </button>
           </div>
