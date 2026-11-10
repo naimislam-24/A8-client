@@ -190,13 +190,13 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div className="border-t border-white/10 px-4 py-2 md:hidden">
-        <a
-          href="/events"
+        <Link
+          href="/facilities"
           className="flex items-center justify-center gap-2 rounded-xl py-2.5 text-sm font-semibold text-white/80 transition hover:bg-[#0F766E]/20 hover:text-[#2DD4BF]"
         >
           <CalendarDays size={17} />
           Upcoming Events
-        </a>
+        </Link>
       </div>
     </header>
 
