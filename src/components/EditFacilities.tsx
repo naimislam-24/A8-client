@@ -23,6 +23,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "@/lib/auth-client";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { getTokenFromClient } from "@/lib/getTokenFromClient";
 
 type FormState = {
   _id: string;
@@ -137,6 +138,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const token = await getTokenFromClient();
 
     setStatus(null);
 
@@ -153,6 +155,7 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             ...updatedData,
@@ -168,7 +171,8 @@ const EditFacilities = ({ facility }: { facility: TFacility }) => {
 
       toast.success("Event updated successfully!");
 
-      router.push("/my-facilities");
+      // eslint-disable-next-line @next/next/no-location-assign-relative-destination
+      window.location.href = "/my-facilities";
       router.refresh();
     } catch (err) {
       setStatus({

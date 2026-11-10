@@ -16,6 +16,7 @@ import {
 
 import { Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
+import { getTokenFromClient } from "@/lib/getTokenFromClient";
 
 const DeleteFacilities = ({ id }: { id: string }) => {
   const router = useRouter();
@@ -23,12 +24,16 @@ const DeleteFacilities = ({ id }: { id: string }) => {
 
   const handleDelete = async () => {
     setDeleting(true);
+    const token = await getTokenFromClient();
 
     try {
       const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER_BESE_URL}/facilities/${id}`,
         {
           method: "DELETE",
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
         },
       );
 
